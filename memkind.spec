@@ -75,7 +75,7 @@ popd
 %{_mandir}/man3/*
 
 %changelog
-* Wed Aug 2 2021  luweitao <luweitaobe@163.com> - 2.7.1-12
+* Mon Aug 2 2021  luweitao <luweitaobe@163.com> - 2.7.1-12
 - fix compile failure by GCC-10
 
 * Thu Apr 23 2020 leiju <leiju4@huawei.com> - 1.7.0-4
