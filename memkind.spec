@@ -1,10 +1,11 @@
 Name:                memkind
 Summary:             Extensible Heap Manager for User
 Version:             1.13.0
-Release:             1
+Release:             2
 License:             BSD
 URL:                 http://memkind.github.io/memkind
 Source0:             https://github.com/memkind/memkind/archive/v1.13.0/%{name}-%{version}.tar.gz
+Patch0001:           0001-support-multi-threading-build.patch
 
 BuildRequires:       automake libtool numactl-devel systemd gcc gcc-c++
 ExclusiveArch:       x86_64 aarch64
@@ -80,6 +81,9 @@ popd
 %{_mandir}/man7/*
 
 %changelog
+* Wed Jan 18 2023 liyanan <liyanan32@h-partners.com> - 1.13.0-2
+- Support multi-threading build
+
 * Mon Jun 6 2022  Hesham Almatary <hesham.almatary@huawei.com> - 1.13.0-1
 - Upgrade to version 1.13.0 and allow building for aarch64
 
