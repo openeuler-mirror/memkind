@@ -1,10 +1,10 @@
 Name:                memkind
 Summary:             Extensible Heap Manager for User
-Version:             1.13.0
-Release:             2
+Version:             1.14.0
+Release:             1
 License:             BSD
 URL:                 http://memkind.github.io/memkind
-Source0:             https://github.com/memkind/memkind/archive/v1.13.0/%{name}-%{version}.tar.gz
+Source0:             https://github.com/memkind/memkind/archive/v1.14.0/%{name}-%{version}.tar.gz
 Patch0001:           0001-support-multi-threading-build.patch
 
 BuildRequires:       automake libtool numactl-devel systemd gcc gcc-c++
@@ -32,15 +32,15 @@ Help documents for memkind.
 %autosetup -a 0 -n %{name}-%{version} -p1
 
 %build
-pushd %{_builddir}/memkind-1.13.0
-echo 1.13.0 > %{_builddir}/memkind-1.13.0/VERSION
+pushd %{_builddir}/%{name}-%{version}
+echo %{version} > %{_builddir}/%{name}-%{version}/VERSION
 ./build.sh --prefix=%{_prefix} --includedir=%{_includedir} --libdir=%{_libdir} \
-           --bindir=%{_bindir} --docdir=%{_docdir}/memkind --mandir=%{_mandir} \
+           --bindir=%{_bindir} --docdir=%{_docdir}/%{name} --mandir=%{_mandir} \
            --sbindir=%{_sbindir}
 popd
 
 %install
-pushd %{_builddir}/memkind-1.13.0
+pushd %{_builddir}/%{name}-%{version}
 %make_install
 popd
 
@@ -56,6 +56,7 @@ popd
 %{_libdir}/libautohbw.so.*
 %{_bindir}/memkind-hbw-nodes
 %{_bindir}/memkind-auto-dax-kmem-nodes
+%{_bindir}/memtier
 %dir %{_docdir}/memkind
 %doc %{_docdir}/memkind/COPYING
 
@@ -81,13 +82,16 @@ popd
 %{_mandir}/man7/*
 
 %changelog
+* Sat Feb 11 2023 Qingqing Li <liqingqing3@huawei.com> - 1.14.0-1
+- Upgrade to 1.14.0
+
 * Wed Jan 18 2023 liyanan <liyanan32@h-partners.com> - 1.13.0-2
 - Support multi-threading build
 
 * Mon Jun 6 2022  Hesham Almatary <hesham.almatary@huawei.com> - 1.13.0-1
 - Upgrade to version 1.13.0 and allow building for aarch64
 
-* Wed Aug 2 2021  luweitao <luweitaobe@163.com> - 2.7.1-12
+* Mon Aug 2 2021  luweitao <luweitaobe@163.com> - 2.7.1-12
 - fix compile failure by GCC-10
 
 * Thu Apr 23 2020 leiju <leiju4@huawei.com> - 1.7.0-4
