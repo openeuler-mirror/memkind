@@ -1,11 +1,14 @@
 Name:                memkind
 Summary:             Extensible Heap Manager for User
 Version:             1.13.0
-Release:             2
+Release:             3
 License:             BSD
 URL:                 http://memkind.github.io/memkind
 Source0:             https://github.com/memkind/memkind/archive/v1.13.0/%{name}-%{version}.tar.gz
 Patch0001:           0001-support-multi-threading-build.patch
+%if "%toolchain" == "clang"
+Patch0002:           0002-fix-clang-omp.patch
+%endif
 
 BuildRequires:       automake libtool numactl-devel systemd gcc gcc-c++
 ExclusiveArch:       x86_64 aarch64
@@ -81,6 +84,9 @@ popd
 %{_mandir}/man7/*
 
 %changelog
+* Thu Jun 29 2023 yoo <sunyuechi@iscas.ac.cn> - 1.13.0-3
+- fix clang build error: omp
+
 * Wed Jan 18 2023 liyanan <liyanan32@h-partners.com> - 1.13.0-2
 - Support multi-threading build
 
