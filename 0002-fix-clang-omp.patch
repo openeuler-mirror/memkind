@@ -1,0 +1,22 @@
+diff -u -r memkind-1.13.0/test/environ_err_hbw_threshold_test.cpp memkind-1.13.0/test/environ_err_hbw_threshold_test.cpp
+--- memkind-1.13.0/test/environ_err_hbw_threshold_test.cpp	2021-12-23 14:38:11.000000000 +0800
++++ memkind-1.13.0/test/environ_err_hbw_threshold_test.cpp	2023-06-29 09:46:35.000000000 +0800
+@@ -5,7 +5,6 @@
+ #include <memory>
+ #include <numa.h>
+ #include <numaif.h>
+-#include <omp.h>
+ #include <sys/sysinfo.h>
+ #include <unordered_map>
+ #include <unordered_set>
+diff -u -r memkind-1.13.0/test/memkind_hmat_tests.cpp memkind-1.13.0/test/memkind_hmat_tests.cpp
+--- memkind-1.13.0/test/memkind_hmat_tests.cpp	2021-12-23 14:38:11.000000000 +0800
++++ memkind-1.13.0/test/memkind_hmat_tests.cpp	2023-06-29 09:47:47.000000000 +0800
+@@ -5,7 +5,6 @@
+ #include <memkind/internal/memkind_private.h>
+ #include <memory>
+ #include <numa.h>
+-#include <omp.h>
+ #include <sys/sysinfo.h>
+ 
+ #include "TestPrereq.hpp"
